@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GGM.Models.Model.Hizmet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Yeni Hizmet ", "Create",null,new{@class="btn btn-primary"})
+</p>
+<table class="table table-bordered table-striped table-responsive-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MevzuatCalismasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IthalatIslemleri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IhracatIslemleri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GumrukIsleri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestekHizmetleri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DigerHizmetler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr >
+        <td  style="width: 400px">
+            @Html.Raw(@item.MevzuatCalismasi.Substring(0,500))
+        </td>
+        <td  style="width: 400px">
+           @Html.Raw(@item.IthalatIslemleri.Substring(0, 250) )
+        </td>
+        <td style="width: 400px">
+            @Html.Raw(@item.IhracatIslemleri.Substring(0, 250) )
+        </td>
+        <td style="width: 400px">
+            @Html.Raw(@item.GumrukIsleri.Substring(0, 250) )
+        </td>
+        <td style="width: 400px">
+            @Html.Raw(@item.DestekHizmetleri.Substring(0, 250))
+        </td>
+        <td style="width: 400px">
+            @Html.Raw(@item.DigerHizmetler.Substring(0, 250))
+        </td>
+        <td style="width: 400px">
+           <img class="img-responsive" src="@item.ResimURL " width="800" height="300" />
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.HizmetId },new {@class="btn btn-warning"}) 
+            
+            @Html.ActionLink("Sil", "Delete", new { id=item.HizmetId },new {@class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>

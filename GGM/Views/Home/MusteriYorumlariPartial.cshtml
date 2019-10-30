@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GGM.Models.Model.MusteriYorumlari>
+@{
+    Layout = null;
+}
+<ul class="bxslider">
+    @foreach (var item in Model)
+    {
+        
+
+        <li>
+            <blockquote>
+                @Html.Raw(item.MusteriYorum)
+            </blockquote>
+            <div class="testimonial-autor">
+                <img src="@item.ResimURL" alt="" style="height: 150px" />
+                <h4>@item.MusteriAd</h4>
+                <a href="#">@item.Link</a>
+            </div>
+        </li>
+
+
+    }
+</ul>

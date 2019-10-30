@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<!-- section featured -->
+<section id="featured">
+
+    <!-- slideshow start here -->
+
+    @{Html.RenderAction("SliderPartial", "Home");}
+
+    <!-- slideshow end here -->
+
+</section>
+<!-- /section featured -->
+
+<section id="content">
+    <div class="container">
+
+
+        @*<div class="row">
+            <div class="span12">
+                <div class="row">
+                    <div class="span4">
+                        <div class="box flyLeft">
+                            <div class="icon">
+                                <i class="ico icon-circled icon-bgdark icon-star active icon-3x"></i>
+                            </div>
+                            <div class="text">
+                                <h4>High <strong>Quality</strong></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                                </p>
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span4">
+                        <div class="box flyIn">
+                            <div class="icon">
+                                <i class="ico icon-circled icon-bgdark icon-dropbox active icon-3x"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Rich of <strong>Features</strong></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                                </p>
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="box flyRight">
+                            <div class="icon">
+                                <i class="ico icon-circled icon-bgdark icon-laptop active icon-3x"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Modern <strong>Design</strong></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                                </p>
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+
+        <div class="row">
+            <div class="span12">
+                <div class="solidline"></div>
+            </div>
+        </div>
+
+        @*<div class="row">
+            <div class="span12 aligncenter">
+                <h3 class="title">Müşterilerimiz <strong>hakkımızda</strong> neler söylüyor</h3>
+                <div class="blankline30"></div>
+
+                @{Html.RenderAction("MusteriYorumlariPartial", "Home");}
+
+            </div>
+        </div>*@
+
+    </div>
+</section>
+
+
+<section id="works">
+    <div class="container">
+        <div class="row">
+            @{Html.RenderAction("HizmetAnaPartial", "Home");}
+        </div>
+    </div>
+</section>
+
+

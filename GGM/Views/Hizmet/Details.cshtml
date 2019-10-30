@@ -1,0 +1,75 @@
+﻿@model GGM.Models.Model.Hizmet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hizmet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MevzuatCalismasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MevzuatCalismasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IthalatIslemleri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IthalatIslemleri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IhracatIslemleri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IhracatIslemleri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GumrukIsleri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GumrukIsleri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestekHizmetleri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestekHizmetleri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DigerHizmetler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DigerHizmetler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HizmetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

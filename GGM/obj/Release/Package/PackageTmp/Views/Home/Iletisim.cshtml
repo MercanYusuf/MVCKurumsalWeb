@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">İletişim</li>
+                    </ul>
+                    <h2>Bize Ulaşın</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.7332105475634!2d28.830744550766884!3d40.987322428561775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa368e73ff245%3A0xa3dce34e6f5ca6a8!2sOIA+Global+Istanbul!5e0!3m2!1str!2str!4v1562628815730!5m2!1str!2str" style="width: 100%;" height="450" frameborder="0"  allowfullscreen></iframe>
+    <br /> <br />
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <h4>Lütfen Eksiksiz Doldurunuz.</h4>
+                <div class="alert-info" id="sendmessage">@ViewBag.Uyari </div>
+                <div id="errormessage"></div>
+
+                <form action="/Home/Iletisim/" method="post" role="form" class="contactForm">
+                    <div class="row">
+                        <div class="span4 form-group field">
+                            <input type="text" name="adsoyad" id="name" placeholder="İsminiz" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
+                        </div>
+
+                        <div class="span4 form-group">
+                            <input type="text" name="email" id="email" placeholder="Email Adresiniz" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="span8 form-group">
+                            <input type="text" name="konu" id="subject" placeholder="Sorunuz" data-rule="minlen:4" required />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="span8 form-group">
+                            <textarea name="mesaj" rows="5" data-rule="required" required
+                                      placeholder="Mesajınız"></textarea>
+                            <div class="validation"></div>
+                            <div class="text-center">
+                                <button class="btn btn-theme btn-medium margintop10" type="submit">Gönder</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="span4">
+                <div class="clearfix"></div>
+                <aside class="right-sidebar">
+
+                    <div class="widget">
+                        <h5 class="widgetheading">İletişim Adresimiz<span></span></h5>
+
+                        <ul class="contact-info">
+                            <li><label>Addres :</label> @ViewBag.Iletisim.Adres<br /></li>
+                            <li><label>Telefon :</label>@ViewBag.Iletisim.Telefon</li>
+                            <li><label>Fax : </label>@ViewBag.Iletisim.Fax</li>
+                            <li><label>Email : </label> @ViewBag.Iletisim.Email</li>
+                        </ul>
+
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GGM.Models.Model.Slider>
+@{
+    Layout = null;
+}
+
+
+
+
+
+<div id="demo1" >
+    @foreach (var item in Model)
+    {
+        <div class="slide">
+            <img src="@item.ResimURL" />
+            <!--Slider Description example-->
+            <div class="slide-desc">
+                <h2>@item.Baslik</h2>
+                <p>@item.Aciklama </p>
+            </div>
+        </div>
+    }
+</div>

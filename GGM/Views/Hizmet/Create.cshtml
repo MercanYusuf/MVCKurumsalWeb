@@ -1,0 +1,86 @@
+﻿@model GGM.Models.Model.Hizmet
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript">
+    CKEDITOR.replace("editor")
+</script>
+<h2>Yeni Hizmet Ekle</h2>
+
+@using (Html.BeginForm("Create", "Hizmet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MevzuatCalismasi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="MevzuatCalismasi" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.MevzuatCalismasi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IthalatIslemleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="IthalatIslemleri" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.IthalatIslemleri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IhracatIslemleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="IhracatIslemleri" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.IhracatIslemleri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GumrukIsleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="GumrukIsleri" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.GumrukIsleri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DestekHizmetleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="DestekHizmetleri" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.DestekHizmetleri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DigerHizmetler, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="DigerHizmetler" required class="ckeditor"></textarea>
+                @Html.ValidationMessageFor(model => model.DigerHizmetler, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ResimURL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="ResimURL" class="form-control"placeholder="Resim seçiniz." />
+                @Html.ValidationMessageFor(model => model.ResimURL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ekle" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary" })
+</div>

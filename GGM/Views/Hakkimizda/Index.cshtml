@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GGM.Models.Model.Hakkimizda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered table-striped table-responsive-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kurumsal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vizyon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Misyon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KalitePolitikamiz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degerlerimiz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(@item.Aciklama.Substring(0, Math.Min(item.Aciklama.Length, 80)))
+        </td>
+        <td>
+            @Html.Raw(@item.Kurumsal.Substring(0, Math.Min(item.Kurumsal.Length, 79)))
+        </td>
+        <td>
+            @Html.Raw(@item.Vizyon.Substring(0, Math.Min(item.Vizyon.Length, 80)))
+        </td>
+        <td>
+            @Html.Raw(@item.Misyon.Substring(0, Math.Min(item.Misyon.Length, 80)))
+        </td>
+        <td>
+            @Html.Raw(@item.KalitePolitikamiz.Substring(0, Math.Min(item.KalitePolitikamiz.Length, 80)))
+        </td>
+        <td>
+            @Html.Raw(@item.Degerlerimiz.Substring(0, Math.Min(item.Degerlerimiz.Length, 75)))
+        </td>
+        <td>
+            <img class="img-responsive" src="@item.ResimURL " width="150" height="150" />
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.HakkimizdaId },new{@class="btn btn-warning"}) 
+           
+        </td>
+    </tr>
+}
+
+</table>

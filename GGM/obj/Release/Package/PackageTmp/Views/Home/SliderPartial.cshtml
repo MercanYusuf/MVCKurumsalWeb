@@ -1,0 +1,101 @@
+﻿@model IEnumerable<GGM.Models.Model.Slider>
+@{
+    Layout = null;
+}
+
+
+
+
+@*<div id="da-slider" class="da-slider da-slider-fb">
+  
+        <div class="da-slide da-slide-current">
+
+            <div class="da-slide">
+                @foreach (var item in Model)
+                {
+                <h2>@item.Baslik</h2>
+                <p> @item.Aciklama</p>
+
+                    <div class="da-img"><img src="@item.ResimURL" alt=""/></div>
+                }
+            </div>
+
+        </div>
+  
+
+    <nav class="da-arrows">
+        <span class="da-arrows-prev"></span>
+        <span class="da-arrows-next"></span>
+    </nav>
+
+</div>*@
+
+@*<div class="camera_wrap" id="camera-slide" >
+
+  @foreach(var item in Model) {
+    <!-- slide 2 here -->
+    <div data-src="@item.ResimURL ">
+        <div class="camera_caption fadeFromLeft">
+            <div class="container">
+                <div class="row">
+                    <div class="span6">
+                        <img src="@item.ResimURL" alt="" />
+                    </div>
+                    <div class="span6">
+                        <h2 class="animated fadeInDown"><strong><span> @item.Baslik</span></strong></h2>
+                        <p class="animated fadeInUp"> @item.Aciklama</p>
+                        <form>
+                            <div class="input-append">
+                                <input class="span3 input-large" type="text">
+                                <button class="btn btn-theme btn-large" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  }
+   
+
+</div>*@
+
+@*<div id="nivo-slider">
+    <div class="nivo-slider">
+        @foreach (var item in Model)
+        {
+
+
+            <img src="@item.ResimURL" alt="@item.Baslik" />
+            <div class="nivo-caption" id="caption-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>@item.Baslik</h3>
+                            <p>@item.Aciklama</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+</div>*@
+
+<div id="demo1" >
+    @foreach (var item in Model)
+    {
+        <div class="slide">
+            <img src="@item.ResimURL" />
+            <!--Slider Description example-->
+            <div class="slide-desc">
+                <h2>@item.Baslik</h2>
+                <p>@item.Aciklama </p>
+            </div>
+        </div>
+    }
+</div>

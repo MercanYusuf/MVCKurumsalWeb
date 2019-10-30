@@ -1,0 +1,51 @@
+﻿@model GGM.Models.Model.MusteriYorumlari
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MusteriYorumlari</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriYorum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriYorum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MusteriYorumlariId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

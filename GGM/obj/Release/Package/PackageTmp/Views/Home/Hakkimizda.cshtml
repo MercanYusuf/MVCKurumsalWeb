@@ -1,0 +1,223 @@
+﻿@using GGM.Models.Model
+@model GGM.Models.Model.Hakkimizda
+
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+                       
+                        <li class="active">Hakkimizda</li>
+                    </ul>
+                    <h2>Hakkimizda</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                
+                <p>
+                   @Html.Raw(Model.Aciklama)
+                </p>
+            
+            </div>
+            <div class="span6">
+                <!-- start flexslider -->
+                <img src="@Model.ResimURL" />
+                <!-- end flexslider -->
+            </div>
+        </div>
+        @*<div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="@Model.ResimURL" alt="" />
+                </li>
+                      
+            </ul>
+        </div>*@
+        
+        <!-- divider -->
+        <div class="row">
+            <div class="span12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+        <!-- end divider -->
+        <div class="row" style="padding-left: 300px">
+            <div class="span6">
+                <h4>Hakkımızda Daha Fazla</h4>
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                1.Kurumsal 
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <p>
+                                  @Html.Raw(Model.Kurumsal)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                2. Vizyon
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>
+                                    @Html.Raw(Model.Vizyon)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                3. Misyon
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>
+                                    @Html.Raw(Model.Misyon)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                                4. Kalite Politikamız
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>
+                                    @Html.Raw(Model.KalitePolitikamiz)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                                5.Değerlerimiz
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>
+                                    @Html.Raw(Model.Degerlerimiz)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="span6">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <img src="@Model.ResimURL" alt="" />
+                        </li>
+                      
+                    </ul>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</section>
+@*<section id="content">
+    <div class="container">
+        <div class="row">
+      
+
+                <div class="span12">
+
+                    <p>
+                        @Html.Raw(Model.Aciklama)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.Raw(Model.Kurumsal)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.Raw(Model.Vizyon)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.Raw(Model.Misyon)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.Raw(Model.KalitePolitikamiz)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.Raw(Model.Degerlerimiz)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+
+
+
+            <div class="blankline30"></div>
+
+        </div>
+</section>*@

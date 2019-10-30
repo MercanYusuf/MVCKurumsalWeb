@@ -1,0 +1,212 @@
+﻿@{
+    var selectedCont = Url.RequestContext.RouteData.Values["controller"].ToString();
+
+    var selectedAction = Url.RequestContext.RouteData.Values["action"].ToString();
+
+    var selected = selectedCont + "/" + selectedAction;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.SiteKimlik.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewBag.SiteKimlik.Description" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="@ViewBag.SiteKimlik.Keywords" />
+
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="/Content/SiteLayout/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/flexslider.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/prettyPhoto.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/camera.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="/Content/SiteLayout/css/style.css" rel="stylesheet" />
+    <link href="~/Content/SiteLayout/css/skdslider.css" rel="stylesheet" />
+    <link href="~/Content/SiteLayout/css/jcarousel.css" rel="stylesheet" />
+    <link href="~/Content/SiteLayout/css/jquery.fancybox.css" rel="stylesheet" />
+    <!-- Theme skin -->
+    <link href="/Content/SiteLayout/color/yellow.css" rel="stylesheet" />
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="ico/favicon.png" />
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- start header -->
+        <header>
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <p class="topcontact"><i class="icon-phone"></i> @ViewBag.Iletisim.Telefon</p>
+                        </div>
+                        <div class="span6">
+
+                            <ul class="social-network">
+                                <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-white"></i></a></li>
+                                <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-white"></i></a></li>
+                                <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-white"></i></a></li>
+                                <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest  icon-white"></i></a></li>
+                                <li><a href="#" data-placement="bottom" title="Google +"><i class="icon-google-plus icon-white"></i></a></li>
+                                <li><a href="#" data-placement="bottom" title="Dribbble"><i class="icon-dribbble icon-white"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+
+                <div class="row nomargin">
+                    <div class="span4">
+                        <div class="logo">
+                            <a href="/Anasayfa/"><img src="@ViewBag.SiteKimlik.LogoURL" style="width:200px;" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <div class="navbar navbar-static-top">
+                            <div class="navigation">
+
+                                <ul class="nav topnav">
+                                    @if (selected == "Home/Index")
+                                    {
+                                        <li class="active"><a href="/Anasayfa/">Ana Sayfa</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/Anasayfa/">Ana Sayfa</a></li>
+                                    }
+
+                                    @if (selected == "Home/Hakkimizda")
+                                    {
+                                        <li class="active">
+                                            <a class="nav-link" href="/Hakkimiz/">HAKKIMIZDA</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="/Hakkimiz/">HAKKIMIZDA</a>
+                                        </li>
+                                    }
+
+
+
+
+                                    @if (selected == "Home/Hizmet")
+                                    {
+                                        <li class="active"><a href="/Hizmetlerimiz/">HİZMETLERİMİZ</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/Hizmetlerimiz/">HİZMETLERİMİZ</a></li>
+                                    }
+                                    @if (selected == "Home/Referans")
+                                    {
+                                        <li class="active"><a href="/Referanslarimiz/">REFERANS</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/Referanslarimiz/">REFERANS</a></li>
+                                    }
+                                    @if (selected == "Home/Blog")
+                                    {
+                                        <li class="active"><a href="/BlogPost/">BLOG</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/BlogPost/">BLOG</a></li>
+                                    }
+
+                                    @if (selected == "Home/Iletisim")
+                                    {
+                                        <li class="active"><a href="/BizeUlasin/">İLETİŞİM</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/BizeUlasin/">İLETİŞİM</a></li>
+                                    }
+
+
+                                </ul>
+
+                            </div>
+                            <!-- end navigation -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+
+        @{Html.RenderAction("FooterPartial", "Home");}
+    </div>
+    <a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bglight icon-2x active"></i></a>
+
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="~/Content/SiteLayout/js/jquery.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.easing.1.3.js"></script>
+    <script src="~/Content/SiteLayout/js/bootstrap.js"></script>
+
+    <script src="~/Content/SiteLayout/js/modernizr.custom.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.nivo.slider.js"></script>
+    <script src="~/Content/SiteLayout/js/toucheffects.js"></script>
+    <script src="~/Content/SiteLayout/js/google-code-prettify/prettify.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.bxslider.min.js"></script>
+    <script src="~/Content/SiteLayout/js/camera/camera.js"></script>
+    <script src="~/Content/SiteLayout/js/camera/setting.js"></script>
+    <script src="~/Content/SiteLayout/js/custom.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Content/SiteLayout/js/portfolio/jquery.quicksand.js"></script>
+    <script src="~/Content/SiteLayout/js/portfolio/setting.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.cslider.js"></script>
+    <script src="~/Content/SiteLayout/js/skdslider.js"></script>
+    <script src="~/Content/SiteLayout/js/skdslider.min.js"></script>
+    <script src="~/Content/SiteLayout/js/jquery.flexslider.js"></script>
+    <script src="~/Content/SiteLayout/js/animate.js"></script>
+    <script src="~/Content/SiteLayout/js/inview.js"></script>
+
+    <!-- Template Custom JavaScript File -->
+    <script src="/Content/SiteLayout/js/custom.js"></script>
+    <script>  jQuery(document).ready(function(){
+    jQuery('#demo1').skdslider({
+        slideSelector: '.slide',
+        delay:5000,
+        animationSpeed:2000,
+        showNextPrev:true,
+        showPlayButton:true,
+        autoSlide:true,
+        animationType:'fading'
+    });
+
+    jQuery('#demo2').skdslider({
+        slideSelector: '.slide',
+        delay:5000, 
+        animationSpeed: 1000,
+        showNextPrev:true,
+        showPlayButton:false,
+        autoSlide:true,
+        animationType:'sliding'
+    });
+});</script>
+</body>
+</html>

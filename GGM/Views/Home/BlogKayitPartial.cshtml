@@ -1,0 +1,15 @@
+﻿@model IEnumerable<GGM.Models.Model.Blog>
+@using GGM.Helper;
+@{
+    ViewBag.Title = "BlogKayitPartial";
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <li>
+        <img src="@item.ResimURL" alt="@item.Baslik" class="thumbnail pull-left" />
+        <p><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></p>
+        <span>@DateTime.Now</span>
+    </li>
+
+}

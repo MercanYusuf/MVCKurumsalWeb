@@ -1,0 +1,139 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using GGM.Helper;
+@model IPagedList<GGM.Models.Model.Blog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Blog Sayfası</li>
+                    </ul>
+                    <h2>Blog </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="span8">
+                @foreach (var item in Model)
+                {
+                    <article>
+                        <div class="row">
+
+                            <div class="span8">
+
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h3>
+                                    </div>
+
+                                    <img src="@item.ResimURL" alt="@item.Baslik" />
+                                </div>
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-file"></i></li>
+                                        <li>Yazan: <a href="#" class="author">Admin</a></li>
+                                        <li>Tarih:<a href="#" class="date">@DateTime.Now</a></li>
+                                        <li>Kategori: <a href="#">@item.Kategori.KategoriAd</a></li>
+                                    </ul>
+                                </div>
+                                <div class="post-entry">
+                                    <p>
+                                        @Html.Raw(item.Icerik.Substring(0, Math.Min(item.Icerik.Length, 250)))
+                                    </p>
+                                    <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId" class="readmore">Okumaya Devam Edebilirsiniz. <i class="icon-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                }
+
+
+                <div id="pagination">
+                    @*@Html.PagedListPager(Model, Sayfa => Url.Action("Blog", new { Sayfa }), PagedListRenderOptions.Classic)*@
+                </div>
+            </div>
+
+            <div class="span4">
+
+                <aside class="right-sidebar">
+
+                  
+
+                    <div class="widget">
+
+                        <h5 class="widgetheading">Kategoriler</h5>
+
+                        <ul class="cat">
+                            @{
+                                Html.RenderAction("BlogKategoriPartial", "Home");
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#one" data-toggle="tab"><i class="icon-star"></i>Son Blog Yazıları</a></li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="one">
+                                    <ul class="popular">
+                                        @{
+                                            Html.RenderAction("BlogKayitPartial", "Home");
+                                        }
+
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*<div class="widget">
+
+                            <h5 class="widgetheading">Video widget</h5>
+                            <div class="video-container">
+                                <iframe src="http://player.vimeo.com/video/30585464?title=0&amp;byline=0">			</iframe>
+                            </div>
+                        </div>*@
+
+                    @*<div class="widget">
+                            <h5 class="widgetheading">Flickr photostream</h5>
+                            <div class="flickr_badge">
+                                <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
+                            </div>
+                            <div class="clear"></div>
+                        </div>*@
+                    @*<div class="widget">
+
+                            <h5 class="widgetheading">Text widget</h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, quo everti torquatos rationibus an, graeci splendide mel cu. Sed ad vidisse eruditi maluisset, et duo mazim placerat adipiscing.
+                            </p>
+
+                        </div>*@
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</section>

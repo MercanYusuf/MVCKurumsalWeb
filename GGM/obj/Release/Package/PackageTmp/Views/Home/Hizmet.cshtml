@@ -1,0 +1,101 @@
+﻿
+@using GGM.Models.Model
+@model GGM.Models.Model.Hizmet
+
+@{
+    ViewBag.Title = "Hizmet";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+
+                        <li class="active">Hizmetlerimiz</li>
+                    </ul>
+                    <h2>Hizmetler</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="span12">
+
+                <p>
+                   @Html.Raw(Model.MevzuatCalismasi)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+                <h4></h4>
+                <p>
+                    @Html.Raw(Model.IthalatIslemleri)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+                <h4></h4>
+                <p>
+                    @Html.Raw(Model.IhracatIslemleri)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+                <h4></h4>
+                <p>
+                    @Html.Raw(Model.GumrukIsleri)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+                <h4></h4>
+                <p>
+                    @Html.Raw(Model.DigerHizmetler)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+                <h4></h4>
+                <p>
+                    @Html.Raw(Model.DestekHizmetleri)
+                </p>
+                <img src="/Content/ggm.png" />
+                <div class="row">
+                    <div class="span12">
+                        <div class="solidline"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="blankline30"></div>
+
+    </div>
+</section>

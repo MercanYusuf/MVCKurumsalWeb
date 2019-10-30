@@ -1,0 +1,172 @@
+﻿@model GGM.Models.Model.Blog
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Blog Sayfası</li>
+                    </ul>
+                    <h2>Blog Detay </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="span8">
+
+                <article>
+                    <div class="row">
+
+                        <div class="span8">
+
+                            <div class="post-image">
+                                <div class="post-heading">
+                                    <h3>@Model.Baslik</h3>
+                                </div>
+
+                              
+                            </div>
+                            <div class="meta-post">
+                                <ul>
+                                    <li><i class="icon-file"></i></li>
+                                    <li>Yazan: <a href="#" class="author">Admin</a></li>
+                                    <li>Tarih:<a href="#" class="date">@DateTime.Now</a></li>
+                                    <li>Kategori: <a href="#">@Model.Kategori.KategoriAd</a></li>
+                                </ul>
+                            </div>
+                            <div class="post-entry">
+                                <img src="@Model.ResimURL" alt="@Model.Baslik">
+                                <p>
+                                    @Html.Raw(Model.Icerik)
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="span8">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3>Yorum Yap</h3>
+                            <form>
+                                <div>
+                                    <input style="width: 300px;" type="text" id="adsoyad" placeholder="Adınız Soyadınız" required class="form-control" />
+                                    <br />
+                                    <input style="width: 300px;" type="email" id="eposta" placeholder="Mail Adresiniz" required class="form-control" />
+                                    <br />
+                                    <textarea style="width: 300px; height: 150px;" typeof="text" id="icerik" class="form-control"></textarea>
+                                    <br />
+                                    <button type="submit" class="btn btn-success" id="gonder">Yorum Yap</button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="row">
+                        <div>
+                            <h3>Blog Makale Yorumları</h3>
+                            @foreach (var item in Model.Yorums.OrderByDescending(x => x.YorumId).Where(x => x.Onay == true))
+                            {
+                                <p>@item.AdSoyad - @item.Eposta</p>
+                                @Html.Raw(item.Icerik)
+                                <hr />
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div id="pagination">
+                    @*@Html.PagedListPager(Model, Sayfa => Url.Action("Blog", new { Sayfa }), PagedListRenderOptions.Classic)*@
+                </div>
+            </div>
+
+            <div class="span4">
+
+                <aside class="right-sidebar">
+
+                    <div class="widget">
+                        <form>
+                            <div class="input-append">
+                                <input class="span2" id="appendedInputButton" type="text" placeholder="Type here">
+                                <button class="btn btn-theme" type="submit">Ara</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="widget">
+
+                        <h5 class="widgetheading">Kategoriler</h5>
+
+                        <ul class="cat">
+                            @{
+                                Html.RenderAction("BlogKategoriPartial", "Home");
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#one" data-toggle="tab"><i class="icon-star"></i>Son Blog Yazıları</a></li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="one">
+                                    <ul class="popular">
+                                        @{
+                                            Html.RenderAction("BlogKayitPartial", "Home");
+                                        }
+
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/Content/SiteLayout/js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#gonder").click(function () {
+            var adisoyadi = $("#adsoyad").val();
+            var epostasi = $("#eposta").val();
+            var yorumunuz = $("#icerik").val();
+            $.ajax({
+                url: '/Home/YorumYap/',
+                data: {adsoyad:adisoyadi,eposta: epostasi,icerik:yorumunuz,blogid:@Model.BlogId },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    alert("Yorumunuz eklendi, kontrol edildikten sonra yayınlanacaktır.");
+                }
+            });
+        });
+    })
+
+</script>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<GGM.Models.Model.HizmetAna>
+@{
+    Layout = null;
+}
+
+<div class="span12">
+    <h4 class="title"> <strong>Hizmetlerimiz</strong></h4>
+    <div class="row">
+
+        <div class="grid cs-style-4">
+            @foreach(var item in Model) { 
+                <div class="span3">
+                    <div class="item " >
+
+                        <figure>
+                            <div class="item-thumbss"><img src="@item.ResimURL" style="height: 200px; width: 400px"   alt=""/></div>
+                            <figcaption>
+                                <div>
+                                    <span  >
+                                        <a style="width: 300px"  href="@item.ResimURL" data-pretty="prettyPhoto[gallery1]" title="@item.Aciklama"><i class="icon-plus icon-circled icon-bglight icon-2x"></i></a>
+                                    </span>
+                                   
+                                </div>
+                            </figcaption>
+                        </figure>
+                  
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+

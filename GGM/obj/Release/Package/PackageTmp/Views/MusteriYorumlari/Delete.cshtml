@@ -1,0 +1,57 @@
+﻿@model GGM.Models.Model.MusteriYorumlari
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek İstediğine Emin misin?</h3>
+<div>
+    <h4>MusteriYorumlari</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriYorum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriYorum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

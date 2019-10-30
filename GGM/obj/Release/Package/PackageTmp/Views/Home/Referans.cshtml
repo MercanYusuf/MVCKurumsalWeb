@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GGM.Models.Model.Referanslar>
+@{
+    ViewBag.Title = "Referanslar";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Referanslarımız</li>
+                    </ul>
+                    <h2>Referanslarımız </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+              
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs" class="portfolio">
+                            @foreach(var item in Model) {
+                            <!-- Item Project and Filter Name -->
+                                <li class="item-thumbs span3 design" data-id="id-4" data-type="web">
+                                  
+                                    <div class="kutu"> <img src="@item.ResimURL" alt="" class="resim"  /></div>
+                                    
+                                </li>
+                            }
+                            <!-- End Item Project -->
+                            @*<div class="anatablo">
+                                        <div class="ictablo">*@
+                            @*<img class="kutu" src="@item.ResimURL" alt="" />*@
+                            @*</div>
+                                    </div>*@
+                       
+
+                        </ul>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@using GGM.Models.Model
+    @model GGM.Models.Model.Referanslar
+
+    @{
+        ViewBag.Title = "Referans";
+        Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    }*@
+
+    @*<section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="inner-heading">
+                        <ul class="breadcrumb">
+                            <li><a href="/Anasayfa/">Ana Sayfa</a> <i class="icon-angle-right"></i></li>
+
+                            <li class="active">Referans</li>
+                        </ul>
+                        <h2>Referanslar</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="span12">
+
+                    <p>
+                        @Html.Raw(Model.ReferansAd)
+                    </p>
+
+                    <div class="row">
+                        <div class="span12">
+                            <div class="solidline"></div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="blankline30"></div>
+
+        </div>
+    </section>*@
